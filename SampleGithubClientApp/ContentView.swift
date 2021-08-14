@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
 	var body: some View {
-		HStack {
+		List(0 ..< 4) { item in
 			Image("GitHubMark")
 				.resizable()
 				.frame(width: 44, height: 44, alignment: .center)
