@@ -21,6 +21,6 @@ struct RepoRow: View {
 
 struct RepoRow_Previews: PreviewProvider {
 	static var previews: some View {
-		RepoRow(repo: Repo(id: 1, name: "Test Repo1", owner: User(name: "User1")))
+		RepoRow(repo: Repo(id: 1, name: "Test Repo1", owner: User(name: "User1"), description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", stargazersCount: 10))
 	}
 }
