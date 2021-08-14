@@ -13,6 +13,8 @@
 		41BA57BB26C6AEEA0041202A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BA57BA26C6AEEA0041202A /* Preview Assets.xcassets */; };
 		41BA57C626C7E7F70041202A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57C526C7E7F70041202A /* Repo.swift */; };
 		41BA57C926C7E80C0041202A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57C826C7E80C0041202A /* User.swift */; };
+		41BA57CE26C7ED9A0041202A /* RepoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57CD26C7ED9A0041202A /* RepoRow.swift */; };
+		41BA57D126C7F0520041202A /* RepoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57D026C7F0520041202A /* RepoDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		41BA57BC26C6AEEA0041202A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41BA57C526C7E7F70041202A /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		41BA57C826C7E80C0041202A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		41BA57CD26C7ED9A0041202A /* RepoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoRow.swift; sourceTree = "<group>"; };
+		41BA57D026C7F0520041202A /* RepoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				41BA57B326C6AEE50041202A /* SampleGithubClientAppApp.swift */,
 				41BA57B526C6AEE50041202A /* ContentView.swift */,
+				41BA57D026C7F0520041202A /* RepoDetailView.swift */,
+				41BA57CD26C7ED9A0041202A /* RepoRow.swift */,
 				41BA57CB26C7E8210041202A /* Models */,
 				41BA57B726C6AEEA0041202A /* Assets.xcassets */,
 				41BA57BC26C6AEEA0041202A /* Info.plist */,
@@ -152,8 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41BA57CE26C7ED9A0041202A /* RepoRow.swift in Sources */,
 				41BA57C926C7E80C0041202A /* User.swift in Sources */,
 				41BA57C626C7E7F70041202A /* Repo.swift in Sources */,
+				41BA57D126C7F0520041202A /* RepoDetailView.swift in Sources */,
 				41BA57B626C6AEE50041202A /* ContentView.swift in Sources */,
 				41BA57B426C6AEE50041202A /* SampleGithubClientAppApp.swift in Sources */,
 			);
