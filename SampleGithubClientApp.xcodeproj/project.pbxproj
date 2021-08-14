@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		41BA57B426C6AEE50041202A /* SampleGithubClientAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57B326C6AEE50041202A /* SampleGithubClientAppApp.swift */; };
-		41BA57B626C6AEE50041202A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57B526C6AEE50041202A /* ContentView.swift */; };
+		41BA57B626C6AEE50041202A /* RepoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57B526C6AEE50041202A /* RepoListView.swift */; };
 		41BA57B826C6AEEA0041202A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BA57B726C6AEEA0041202A /* Assets.xcassets */; };
 		41BA57BB26C6AEEA0041202A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BA57BA26C6AEEA0041202A /* Preview Assets.xcassets */; };
 		41BA57C626C7E7F70041202A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57C526C7E7F70041202A /* Repo.swift */; };
 		41BA57C926C7E80C0041202A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57C826C7E80C0041202A /* User.swift */; };
 		41BA57CE26C7ED9A0041202A /* RepoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57CD26C7ED9A0041202A /* RepoRow.swift */; };
 		41BA57D126C7F0520041202A /* RepoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57D026C7F0520041202A /* RepoDetailView.swift */; };
+		41BA57D926C80C2F0041202A /* User+mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57D826C80C2F0041202A /* User+mock.swift */; };
+		41BA57DF26C80C8A0041202A /* Repo+mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57DE26C80C8A0041202A /* Repo+mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		41BA57B026C6AEE50041202A /* SampleGithubClientApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleGithubClientApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BA57B326C6AEE50041202A /* SampleGithubClientAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleGithubClientAppApp.swift; sourceTree = "<group>"; };
-		41BA57B526C6AEE50041202A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		41BA57B526C6AEE50041202A /* RepoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListView.swift; sourceTree = "<group>"; };
 		41BA57B726C6AEEA0041202A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41BA57BA26C6AEEA0041202A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41BA57BC26C6AEEA0041202A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		41BA57C826C7E80C0041202A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		41BA57CD26C7ED9A0041202A /* RepoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoRow.swift; sourceTree = "<group>"; };
 		41BA57D026C7F0520041202A /* RepoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailView.swift; sourceTree = "<group>"; };
+		41BA57D826C80C2F0041202A /* User+mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+mock.swift"; sourceTree = "<group>"; };
+		41BA57DE26C80C8A0041202A /* Repo+mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repo+mock.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				41BA57B326C6AEE50041202A /* SampleGithubClientAppApp.swift */,
-				41BA57B526C6AEE50041202A /* ContentView.swift */,
-				41BA57D026C7F0520041202A /* RepoDetailView.swift */,
-				41BA57CD26C7ED9A0041202A /* RepoRow.swift */,
+				41BA57D326C7F7420041202A /* Views */,
 				41BA57CB26C7E8210041202A /* Models */,
 				41BA57B726C6AEEA0041202A /* Assets.xcassets */,
 				41BA57BC26C6AEEA0041202A /* Info.plist */,
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				41BA57BA26C6AEEA0041202A /* Preview Assets.xcassets */,
+				41BA57DB26C80C5B0041202A /* Mocks */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -87,6 +90,25 @@
 				41BA57C826C7E80C0041202A /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		41BA57D326C7F7420041202A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				41BA57B526C6AEE50041202A /* RepoListView.swift */,
+				41BA57D026C7F0520041202A /* RepoDetailView.swift */,
+				41BA57CD26C7ED9A0041202A /* RepoRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		41BA57DB26C80C5B0041202A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				41BA57D826C80C2F0041202A /* User+mock.swift */,
+				41BA57DE26C80C8A0041202A /* Repo+mock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +184,9 @@
 				41BA57C926C7E80C0041202A /* User.swift in Sources */,
 				41BA57C626C7E7F70041202A /* Repo.swift in Sources */,
 				41BA57D126C7F0520041202A /* RepoDetailView.swift in Sources */,
-				41BA57B626C6AEE50041202A /* ContentView.swift in Sources */,
+				41BA57B626C6AEE50041202A /* RepoListView.swift in Sources */,
+				41BA57DF26C80C8A0041202A /* Repo+mock.swift in Sources */,
+				41BA57D926C80C2F0041202A /* User+mock.swift in Sources */,
 				41BA57B426C6AEE50041202A /* SampleGithubClientAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
