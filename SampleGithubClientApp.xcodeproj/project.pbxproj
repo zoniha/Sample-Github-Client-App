@@ -11,6 +11,8 @@
 		41BA57B626C6AEE50041202A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57B526C6AEE50041202A /* ContentView.swift */; };
 		41BA57B826C6AEEA0041202A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BA57B726C6AEEA0041202A /* Assets.xcassets */; };
 		41BA57BB26C6AEEA0041202A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BA57BA26C6AEEA0041202A /* Preview Assets.xcassets */; };
+		41BA57C626C7E7F70041202A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57C526C7E7F70041202A /* Repo.swift */; };
+		41BA57C926C7E80C0041202A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA57C826C7E80C0041202A /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		41BA57B726C6AEEA0041202A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41BA57BA26C6AEEA0041202A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41BA57BC26C6AEEA0041202A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41BA57C526C7E7F70041202A /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		41BA57C826C7E80C0041202A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			children = (
 				41BA57B326C6AEE50041202A /* SampleGithubClientAppApp.swift */,
 				41BA57B526C6AEE50041202A /* ContentView.swift */,
+				41BA57CB26C7E8210041202A /* Models */,
 				41BA57B726C6AEEA0041202A /* Assets.xcassets */,
 				41BA57BC26C6AEEA0041202A /* Info.plist */,
 				41BA57B926C6AEEA0041202A /* Preview Content */,
@@ -67,6 +72,15 @@
 				41BA57BA26C6AEEA0041202A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		41BA57CB26C7E8210041202A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				41BA57C526C7E7F70041202A /* Repo.swift */,
+				41BA57C826C7E80C0041202A /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41BA57C926C7E80C0041202A /* User.swift in Sources */,
+				41BA57C626C7E7F70041202A /* Repo.swift in Sources */,
 				41BA57B626C6AEE50041202A /* ContentView.swift in Sources */,
 				41BA57B426C6AEE50041202A /* SampleGithubClientAppApp.swift in Sources */,
 			);
