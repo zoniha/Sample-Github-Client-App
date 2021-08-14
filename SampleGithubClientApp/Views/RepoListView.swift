@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct RepoListView: View {
 	private let mockRepos = [
 		Repo(id: 1, name: "Test Repo1", owner: User(name: "User1")),
 		Repo(id: 2, name: "Test Repo2", owner: User(name: "User2")),
@@ -17,8 +17,8 @@ struct ContentView: View {
 	}
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RepoListView_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView()
+		RepoListView()
 	}
 }
