@@ -1,10 +1,15 @@
 import SwiftUI
 import Combine
 
+enum Stateful<Value> {
+	case idle
+	case loading
+	case failed(Error)
+	case loaded(Value)
+}
+
 class ReposLoader: ObservableObject {
-	@Published private(set) var repos = [Repo]()
-	@Published private(set) var error: Error? = nil
-	@Published private(set) var isLoading = false
+	@Published private(set) var repos: Stateful<[Repo]> = .idle
 
 	private var cancellables = Set<AnyCancellable>()
 
@@ -29,19 +34,19 @@ class ReposLoader: ObservableObject {
 
 		reposPublisher
 			.handleEvents(receiveSubscription: {
-				[weak self] _ in self?.isLoading = true
+				[weak self] _ in self?.repos = .loading
 			})
 			.receive(on: DispatchQueue.main)
 			.sink(receiveCompletion: { [weak self] completion in
 				switch completion {
 				case .failure(let error):
 					print("Error: \(error)")
-					self?.error = error
+					self?.repos = .failed(error)
 				case .finished:
 					print("Finished")
 				}
 			}, receiveValue: { [weak self] repos in
-				self?.repos = repos
+				self?.repos = .loaded(repos)
 			}
 			).store(in: &cancellables)
 	}
@@ -51,39 +56,45 @@ struct RepoListView: View {
 	@StateObject private var reposLoader = ReposLoader()
 	var body: some View {
 		NavigationView {
-			if reposLoader.error != nil {
-				VStack {
-					Group {
-						Image("GitHubMark")
-						Text("Failed to load repositories")
-							.padding(.top, 4)
-					}
-					.foregroundColor(.black)
-					.opacity(0.4)
-					Button(
-						action: {
-							reposLoader.call()
-						},
-						label: {
-							Text("Retry")
-								.fontWeight(.bold)
-						}
-					)
-					.padding(.top, 8)
-				}
-			} else {
-				if reposLoader.repos.isEmpty {
+			Group {
+				switch reposLoader.repos {
+				case .idle, .loading:
 					ProgressView("loading...")
-				} else {
-					List(reposLoader.repos) { repo in
-						NavigationLink(
-							destination: RepoDetailView(repo: repo)) {
-							RepoRow(repo: repo)
+				case .failed:
+					VStack {
+						Group {
+							Image("GitHubMark")
+							Text("Failed to load repositories")
+								.padding(.top, 4)
+						}
+						.foregroundColor(.black)
+						.opacity(0.4)
+						Button(
+							action: {
+								reposLoader.call()
+							},
+							label: {
+								Text("Retry")
+									.fontWeight(.bold)
+							}
+						)
+						.padding(.top, 8)
+					}
+				case let .loaded(repos):
+					if repos.isEmpty {
+						Text("No repositories")
+							.fontWeight(.bold)
+					} else {
+						List(repos) { repo in
+							NavigationLink(
+								destination: RepoDetailView(repo: repo)) {
+								RepoRow(repo: repo)
+							}
 						}
 					}
-					.navigationTitle("Repositories")
 				}
 			}
+			.navigationTitle("Repositories")
 		}
 		.onAppear {
 			reposLoader.call()
