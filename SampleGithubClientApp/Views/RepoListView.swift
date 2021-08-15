@@ -4,6 +4,7 @@ import Combine
 class ReposLoader: ObservableObject {
 	@Published private(set) var repos = [Repo]()
 	@Published private(set) var error: Error? = nil
+	@Published private(set) var isLoading = false
 
 	private var cancellables = Set<AnyCancellable>()
 
@@ -27,11 +28,15 @@ class ReposLoader: ObservableObject {
 			.decode(type: [Repo].self, decoder: JSONDecoder())
 
 		reposPublisher
+			.handleEvents(receiveSubscription: {
+				[weak self] _ in self?.isLoading = true
+			})
 			.receive(on: DispatchQueue.main)
-			.sink(receiveCompletion: { completion in
+			.sink(receiveCompletion: { [weak self] completion in
 				switch completion {
 				case .failure(let error):
 					print("Error: \(error)")
+					self?.error = error
 				case .finished:
 					print("Finished")
 				}
@@ -46,16 +51,38 @@ struct RepoListView: View {
 	@StateObject private var reposLoader = ReposLoader()
 	var body: some View {
 		NavigationView {
-			if reposLoader.repos.isEmpty {
-				ProgressView("loading...")
-			} else {
-				List(reposLoader.repos) { repo in
-					NavigationLink(
-						destination: RepoDetailView(repo: repo)) {
-						RepoRow(repo: repo)
+			if reposLoader.error != nil {
+				VStack {
+					Group {
+						Image("GitHubMark")
+						Text("Failed to load repositories")
+							.padding(.top, 4)
 					}
+					.foregroundColor(.black)
+					.opacity(0.4)
+					Button(
+						action: {
+							reposLoader.call()
+						},
+						label: {
+							Text("Retry")
+								.fontWeight(.bold)
+						}
+					)
+					.padding(.top, 8)
 				}
-				.navigationTitle("Repositories")
+			} else {
+				if reposLoader.repos.isEmpty {
+					ProgressView("loading...")
+				} else {
+					List(reposLoader.repos) { repo in
+						NavigationLink(
+							destination: RepoDetailView(repo: repo)) {
+							RepoRow(repo: repo)
+						}
+					}
+					.navigationTitle("Repositories")
+				}
 			}
 		}
 		.onAppear {
