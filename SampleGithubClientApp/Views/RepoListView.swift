@@ -3,6 +3,7 @@ import Combine
 
 class ReposLoader: ObservableObject {
 	@Published private(set) var repos = [Repo]()
+	@Published private(set) var error: Error? = nil
 
 	private var cancellables = Set<AnyCancellable>()
 
@@ -28,7 +29,12 @@ class ReposLoader: ObservableObject {
 		reposPublisher
 			.receive(on: DispatchQueue.main)
 			.sink(receiveCompletion: { completion in
-				print("Finished: \(completion)")
+				switch completion {
+				case .failure(let error):
+					print("Error: \(error)")
+				case .finished:
+					print("Finished")
+				}
 			}, receiveValue: { [weak self] repos in
 				self?.repos = repos
 			}
