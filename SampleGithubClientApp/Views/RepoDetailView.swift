@@ -4,29 +4,32 @@ struct RepoDetailView: View {
 	let repo: Repo
 	
 	var body: some View {
-		HStack {
-			VStack(alignment: .leading) {
-				HStack {
-					Image("GitHubMark")
-						.resizable()
-						.frame(width: 16, height: 16)
-					Text(repo.owner.name)
-						.font(.caption)
+		ScrollView{
+			HStack {
+				VStack(alignment: .leading) {
+					HStack {
+						Image("GitHubMark")
+							.resizable()
+							.frame(width: 16, height: 16)
+						Text(repo.owner.name)
+							.font(.caption)
+					}
+					Text(repo.name)
+						.font(.body)
+						.fontWeight(.semibold)
+					Text(repo.description)
+						.padding(.top, 8)
+					HStack {
+						Image(systemName: "star")
+						Text("\(repo.stargazersCount) stars")
+					}
+					Spacer()
 				}
-				Text(repo.name)
-					.font(.body)
-					.fontWeight(.semibold)
-				Text(repo.description)
-					.padding(.top, 8)
-				HStack {
-					Image(systemName: "star")
-					Text("\(repo.stargazersCount) stars")
-				}
+				.padding()
 				Spacer()
 			}
-			.padding()
-			Spacer()
 		}
+		.navigationBarTitleDisplayMode(.inline)
 	}
 }
 
